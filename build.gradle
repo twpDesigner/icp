@@ -4,6 +4,7 @@ version = '0.0.1'
 apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.github.dcendents.android-maven'
 //apply plugin: 'war'
 
 //引入配置
@@ -33,6 +34,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 repositories {
