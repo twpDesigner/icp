@@ -36,7 +36,6 @@ public class DynamicDataSourceAspect {
 
     @After("@annotation(targetDataSource)")
     public void afterSwitchDS(JoinPoint point,TargetDataSource targetDataSource){
-        // 将数据源置为默认数据源
         DynamicDataSourceContextHolder.clearDataSourceKey();
         System.out.println("Restore DataSource to [{}] in Method [{}] " +
         DynamicDataSourceContextHolder.getDataSourceKey() + point.getSignature());
