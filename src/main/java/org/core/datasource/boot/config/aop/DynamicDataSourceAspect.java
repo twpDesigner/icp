@@ -5,8 +5,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.reflect.MethodSignature;
-import org.core.datasource.boot.config.DataSourceContextHolder;
 import org.core.datasource.boot.config.annotate.TargetDataSource;
 import org.core.datasource.boot.config.container.DynamicDataSourceContextHolder;
 import org.core.datasource.boot.config.property.DynamicDSPropertyConfig;
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Method;
 @Aspect
 @Order(-10)//保证该AOP在@Transactional之前执行
 @Component

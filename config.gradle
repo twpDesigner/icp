@@ -6,10 +6,13 @@ def Dversion = [
         bootStarter: '2.0.1.RELEASE',
         HikariCP:'3.1.0',
         druid:'1.0.23',
-        mybatisSpring:'1.3.2'
+        mybatisSpring:'1.3.2',
+        quartz:'2.0.1.RELEASE',
+
 ]
 
 def PdependencyMap = [
+        quartz:"org.springframework.boot:spring-boot-starter-quartz:${Dversion.quartz}",
         //运行时提供容器
         starter:"org.springframework.boot:spring-boot-starter:${Dversion.bootStarter}",
         //测试依赖库
@@ -19,8 +22,8 @@ def PdependencyMap = [
         //连接池
         //HikariCP:"com.zaxxer:HikariCP:${Dversion.HikariCP}",
         //druid:"com.alibaba:druid:${Dversion.druid}",
-        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
         mybatisSpring:"org.mybatis:mybatis-spring:${Dversion.mybatisSpring}",
+        mybatisBoot:"org.mybatis.spring.boot:mybatis-spring-boot-starter:${Dversion.mybatisSpring}",
         aop:"org.springframework.boot:spring-boot-starter-aop:${Dversion.bootStarter}",
         lombok : "org.projectlombok:lombok:${Dversion.plugin.lombok}"
 ]

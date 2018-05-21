@@ -1,4 +1,4 @@
-package org.core.datasource.boot.config;
+package org.core.datasource.boot.config.component;
 
 
 public class DataSourceContextHolder {

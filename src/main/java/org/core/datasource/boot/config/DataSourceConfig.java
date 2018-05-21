@@ -1,6 +1,6 @@
-package org.core.datasource.boot.config.datasource;
+package org.core.datasource.boot.config;
 
-import org.core.datasource.boot.config.DynamicDataSource;
+import org.core.datasource.boot.config.component.DynamicDataSource;
 import org.core.datasource.boot.config.aop.DynamicDataSourceAspect;
 import org.core.datasource.boot.config.container.DynamicDataSourceContextHolder;
 import org.core.datasource.boot.config.property.DynamicDSPropertyConfig;
@@ -8,12 +8,9 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -26,11 +23,14 @@ import java.util.Map;
 @ImportAutoConfiguration({
         DynamicDataSourceAspect.class
 })
+//@PropertySources
+//        ({
+//                @PropertySource(value = "config/dynamicDS/application-dynamicDS.yml" )
+//        })
 public class DataSourceConfig{
 
     @Autowired
     DynamicDSPropertyConfig dynamicDSPropertyConfig;
-
 
     @Primary
     @Bean(name = "defaultDataSourceProperty")
@@ -78,7 +78,6 @@ public class DataSourceConfig{
      * Github 资料表明与 SpringBoot 2.0 有关
      */
 
-    //way 1:
 //    @Bean
 //    public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
 //        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();

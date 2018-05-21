@@ -1,0 +1,14 @@
+##scheduleJob01 beanName
+##enable是否启用
+##cronTab 定时表达式
+##jobDetail jobTrigger 任务详细与触发器的分类配置，类似id
+#
+#tasks:
+#  jobConfigList:
+#      -   clazz: com.xwtec.jobs.schedule.ScheduledJob01
+#          enable: true
+#          cronTab: "0/1 * * * * ?"
+#      -   clazz: com.xwtec.jobs.schedule.ScheduledJob02
+#          enable: true
+#          cronTab: "0/1 * * * * ?"
+#

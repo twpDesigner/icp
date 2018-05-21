@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  org.core.datasource.boot.config.datasource.DataSourceConfig
+  org.core.datasource.boot.config.DataSourceConfig,\
+  org.core.task.boot.config.TaskConfig

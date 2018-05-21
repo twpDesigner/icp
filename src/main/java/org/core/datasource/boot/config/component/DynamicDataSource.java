@@ -1,4 +1,4 @@
-package org.core.datasource.boot.config;
+package org.core.datasource.boot.config.component;
 
 import lombok.extern.slf4j.Slf4j;
 import org.core.datasource.boot.config.container.DynamicDataSourceContextHolder;
