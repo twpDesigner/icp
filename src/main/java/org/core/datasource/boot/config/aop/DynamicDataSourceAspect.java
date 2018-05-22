@@ -11,6 +11,7 @@ import org.core.datasource.boot.config.property.DynamicDSPropertyConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @Aspect
 @Order(-10)//保证该AOP在@Transactional之前执行
@@ -24,7 +25,11 @@ public class DynamicDataSourceAspect {
     public void beforeSwitchDS(JoinPoint point,TargetDataSource targetDataSource){
         if (!DynamicDataSourceContextHolder.containDataSourceKey(targetDataSource.value())) {
             System.out.println("DataSource [{}] doesn't exist, use default DataSource [{}] " + targetDataSource.value());
-        } else {
+        }
+        else if (StringUtils.isEmpty(targetDataSource.value())){
+            DynamicDataSourceContextHolder.setDataSourceKey(dynamicDSPropertyConfig.getDefaultDS());
+        }
+        else {
             // 切换数据源
             DynamicDataSourceContextHolder.setDataSourceKey(targetDataSource.value());
             System.out.println("Switch DataSource to [{}] in Method [{}] " +

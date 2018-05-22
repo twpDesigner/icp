@@ -29,7 +29,8 @@ jar {
 //上传资源配置
 task sourceJar(type: Jar) {
     //from sourceSets.main.output
-    from sourceSets.main.allJava
+    //from sourceSets.main.allJava
+    from sourceSets.main.class
     //classifier "sources"
 }
 
@@ -37,9 +38,10 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            artifact sourceJar {
-                classifier "sources"
-            }
+//            artifact sourceJar {
+//                classifier "sources"
+//            }
+            artifact sourceJar
             groupId "$group"
             artifactId "icp"
             version "$version"
