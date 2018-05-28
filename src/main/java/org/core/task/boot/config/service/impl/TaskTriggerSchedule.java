@@ -62,6 +62,7 @@ public class TaskTriggerSchedule implements ITaskTriggerSchedule {
                                                 jobConfig.setJobTrigger(jobIdentity);
                                             }
                                             JobDetail jobDetail = JobBuilder.newJob(clazz)
+                                                    .withDescription(jobConfig.getDesc())
                                                     .withIdentity(jobConfig.getJobDetail().getName(),jobConfig.getJobDetail().getGroup()).build();
                                             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jobConfig.getCronTab());
 

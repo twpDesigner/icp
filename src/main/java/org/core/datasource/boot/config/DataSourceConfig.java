@@ -78,14 +78,14 @@ public class DataSourceConfig{
      * Github 资料表明与 SpringBoot 2.0 有关
      */
 
-//    @Bean
-//    public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
-//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-//        // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource 作为数据源则不能实现切换
-//        sqlSessionFactoryBean.setDataSource(dynamicDataSource());
-//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml"));
-//        return sqlSessionFactoryBean;
-//    }
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource 作为数据源则不能实现切换
+        sqlSessionFactoryBean.setDataSource(dynamicDataSource());
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*.xml"));
+        return sqlSessionFactoryBean;
+    }
 
     /**
      * 配置事务管理，如果使用到事务需要注入该 Bean，否则事务不会生效
@@ -107,12 +107,12 @@ public class DataSourceConfig{
      *
      */
 
-    @Bean
-    @ConfigurationProperties(prefix = "mybatis")
-    public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource 作为数据源则不能实现切换
-        sqlSessionFactoryBean.setDataSource(dynamicDataSource());
-        return sqlSessionFactoryBean;
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "mybatis")
+//    public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
+//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//        // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource 作为数据源则不能实现切换
+//        sqlSessionFactoryBean.setDataSource(dynamicDataSource());
+//        return sqlSessionFactoryBean;
+//    }
 }

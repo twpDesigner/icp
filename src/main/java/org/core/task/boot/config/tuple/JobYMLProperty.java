@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class JobYMLProperty {
     private String clazz;
+    private String desc;
     private boolean enable;
     /*
     定时表达式
